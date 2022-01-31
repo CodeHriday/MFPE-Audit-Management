@@ -8,7 +8,7 @@ This is the MFPE Audit Management System Project.
 
 Menaka   -
 
-Ruksana  -   Audid Severity
+Ruksana  -   Audit Severity
 
 Harsh    -
 
