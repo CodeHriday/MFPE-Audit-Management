@@ -10,7 +10,7 @@ Menaka   -
 
 Ruksana  -   Audit Severity
 
-Harsh    -
+Harsh    -  Audit Benchmark
 
 Vaishnavi-
 
