@@ -28,22 +28,25 @@ public class AuditCheckListController {
 	@Autowired
 	private QuestionService questionService;
 	
-	Logger logger = LoggerFactory.getLogger("Checklist-Controller-Logger");
+	Logger logger = LoggerFactory.getLogger("Audit-Checklist-Controller-Logger");
 	
 	
-	// Endpoint to check if the microservice is active
+	// Endpoint to check if the checklist microservice is active 
 	
 		@GetMapping("/health-check")
 		public String healthCheck() {
+			logger.info("Inside HealthCheck function");
 			return "Audit Checklist Microservice is Active";
 		}
 		
 		
 		
-	// Endpoint for retrieving the questions from the DB 
+	// Endpoint for retrieving the questions from the database
 		
 		@PostMapping("/AuditCheckListQuestions")
-		public List<Question> auditCheckListQuestions(@RequestBody AuditType auditType) {
+		public List<Question> getAuditCheckListQuestions(@RequestBody AuditType auditType) {
+			
+			logger.info("Inside getAuditCheckListQuestions function");
 			
 			List<Question> questions = new ArrayList<Question>();
 			

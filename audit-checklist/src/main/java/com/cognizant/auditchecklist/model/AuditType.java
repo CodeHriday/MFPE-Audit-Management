@@ -5,11 +5,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-/**
- * 
- * This POJO class is used for Audit Type
- * 
- *
+/*
+ * POJO class for Audit Type (Internal or sox)
  */
 @Data
 @Getter

@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /*
- Entity class to store audit questions in database.
+ Entity class to store audit questions in the database.
 */
 
 @Data
