@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import com.cognizant.auditchecklist.model.Question;
 
+/*
+ * repository for audit questions
+ */
 @Repository
 public interface QuestionRepo extends JpaRepository<Question, Integer> {
 	

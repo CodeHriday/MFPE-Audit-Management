@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cognizant.auditchecklist.model.Question;
+import com.cognizant.auditchecklist.service.AuthorizationService;
 import com.cognizant.auditchecklist.service.QuestionService;
 import com.cognizant.auditchecklist.model.AuditType;
 
@@ -25,8 +26,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @CrossOrigin(origins = "*")
 public class AuditCheckListController {
 	
+	
 	@Autowired
 	private QuestionService questionService;
+	
+	@Autowired
+	private AuthorizationService authorizationService;
+	
 	
 	Logger logger = LoggerFactory.getLogger("Audit-Checklist-Controller-Logger");
 	
@@ -44,15 +50,24 @@ public class AuditCheckListController {
 	// Endpoint for retrieving the questions from the database
 		
 		@PostMapping("/AuditCheckListQuestions")
-		public List<Question> getAuditCheckListQuestions(@RequestBody AuditType auditType) {
+		public List<Question> auditCheckListQuestions(@RequestHeader("Authorization") String jwt, @RequestBody AuditType auditType) {
 			
-			logger.info("Inside getAuditCheckListQuestions function");
+			logger.info("Inside HealthCheck function");
 			
 			List<Question> questions = new ArrayList<Question>();
 			
-			questions = questionService.getQuestionsByAuditType(auditType);
+			logger.info("JWT (from authorization header) :: " + jwt);
 			
+			// checking if the token is valid or not
+			if(jwt.length()>0 && authorizationService.validateJwt(jwt)) 
+			{	
+				questions = questionService.getQuestionsByAuditType(auditType);
+			}
+			else 
+			{
+				logger.error("Failed to validate the JWT :: " + jwt);
+			}
 			return questions;
 		}
-	
+		
 }
