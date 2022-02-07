@@ -12,6 +12,6 @@ Ruksana  -   Audit Severity
 
 Harsh    -  Audit Benchmark
 
-Vaishnavi-   Audit-Web-Portal-App
+Vaishnavi-   Audit-Web-Portal
 
 Hriday   -   Authorization (JWT)
