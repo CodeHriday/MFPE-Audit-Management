@@ -40,9 +40,7 @@ public class AuditBenchmarkController {
 		if(jwt.length()>0 && authorizationService.validateJwt(jwt)) {			
 			auditBenchmarks = auditBenchmarkService.getAuditBenchmarkList();
 		}
-		else {
-			logger.error("Failed to validate the JWT :: " + jwt);
-		}
+		
 		return auditBenchmarks;
 	}
 	
