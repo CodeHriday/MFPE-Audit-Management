@@ -10,6 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients    //enables interaction between microservices
 public class AuditChecklistApplication {
 
+	
 	static Logger logger = LoggerFactory.getLogger("Audit-Checklist-Application-Logger");
 	
 	public static void main(String[] args) {

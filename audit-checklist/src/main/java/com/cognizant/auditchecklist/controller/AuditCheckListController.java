@@ -63,10 +63,10 @@ public class AuditCheckListController {
 			{	
 				questions = questionService.getQuestionsByAuditType(auditType);
 			}
-			else 
-			{
-				logger.error("Failed to validate the JWT :: " + jwt);
+			else{
+				logger.error("JWT Token is not valid!!!");
 			}
+			
 			return questions;
 		}
 		
