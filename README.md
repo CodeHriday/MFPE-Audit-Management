@@ -47,6 +47,30 @@ Hriday   -   Authorization (JWT)
             </tr>
         </tbody>
     </table>
+
+### Audit-Checklist-Microservice :
+  This module is used for retrieving the *List of Questions based on the user's request* for each *Audit Type* from the H2 in-memory database.
+  This microservice is used by the Audit-Benchmark Microservice to store and retrieve the no of acceptable NOs for each Audit Type
+  This microsevice is used by the Audit-Severity Microservice to evaluate the status of a project and provide an appropriate response.
+
+  * #### --Endpoints : 
+    <table>
+        <thead>
+            <th>Method</th>
+            <th>Endpoint Path</th>
+            <th>Returns</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td>/AuditChecklist</td>
+                <td>Displays the list of Questions</td>
+            </tr>
+        </tbody>
+    </table>
+
+  * #### --Dependencies on Other microsevices : *Authorization Microservice*
+
 ### MFPE-Audit-Management-Benchmark microservice
 
 Harsh Goyel,2048714
@@ -58,3 +82,25 @@ Upon request it returns data as a list in a user-defined AuditBenchmark datatype
 It is used to pass the number of  acceptable “No” or the benchmark, in other words, to audit severity microservice.
 Method:
 GET:/AuditBenchmark:
+
+### Audit-Severity-Microservice :
+  This module is used for checking the severity of the audit by invoking the *Benchmark* and *Checklist*  Microservice as Request from the portal.
+  This microservice will return the status of the audit response by giving the project execution status and the remedial action.
+
+  * #### --Endpoints : 
+    <table>
+        <thead>
+            <th>Method</th>
+            <th>Endpoint Path</th>
+            <th>Returns</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>POST</td>
+                <td>/ProjectExecutionStatus</td>
+                <td>Audit Severity</td>
+            </tr>
+        </tbody>
+    </table>
+
+  * #### --Dependencies on Other microsevices : *Audit-Authorization,Audit-Checklist,Audit-Benchmark*
