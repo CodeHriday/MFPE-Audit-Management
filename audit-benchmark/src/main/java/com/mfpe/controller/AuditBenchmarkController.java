@@ -17,7 +17,7 @@ import com.mfpe.service.AuditBenchmarkService;
 import com.mfpe.service.AuthorizationService;
 
 @RestController
-@RequestMapping("/benchmark")
+//@RequestMapping("/benchmark")
 @CrossOrigin(origins = "*")
 public class AuditBenchmarkController {
 	
