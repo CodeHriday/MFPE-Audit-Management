@@ -17,7 +17,7 @@ import com.mfpe.service.AuditBenchmarkService;
 import com.mfpe.service.AuthorizationService;
 
 @RestController
-@RequestMapping("/benchmark")
+//@RequestMapping("/benchmark")
 @CrossOrigin(origins = "*")
 public class AuditBenchmarkController {
 	
@@ -37,14 +37,17 @@ public class AuditBenchmarkController {
 		
 		// checking if the jwt is valid or not
 		logger.info("from header JWT :: " + jwt);
-		if(jwt.length()>0 && authorizationService.validateJwt(jwt)) {			
+		if(jwt.length()>0&&authorizationService.validateJwt(jwt)) {			
 			auditBenchmarks = auditBenchmarkService.getAuditBenchmarkList();
 		}
-		
+//		else
+//		{
+//			logger.error("Failed to validate the JWT :: " + jwt);
+//		}
 		return auditBenchmarks;
 	}
 	
-	// Endpoint to check if the microservice is live
+	// End point to check if the microservice is live
 	@GetMapping("/health-check")
 	public String healthCheck() {
 		return "Audit Benchmark Microservice is Active";

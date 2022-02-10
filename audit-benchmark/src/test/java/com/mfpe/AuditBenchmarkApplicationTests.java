@@ -21,9 +21,10 @@ class AuditBenchmarkApplicationTests {
 		assertNotNull(auditBenchmarkApplication);
 	}
 	
+	/*
 	@Test 
 	public void testMain() throws IOException{
 		AuditBenchmarkApplication.main(new String[] {});
 	}
-	
+	*/
 }
