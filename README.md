@@ -3,9 +3,11 @@
 Harsh Goyel,2048714
 CDE|IJ023
 
-Audit checklist microservice is a middleware microservice.
-This microservice is used to get the list of questions from H2 database.
-The returned list is used by the UI to display question based on the type selected by the user.
-Method:  
-GET:/AuditCheckListQuestions
+Audit Benchmark is a middleware microservice.
+This microservice stores the number of acceptable “No” in the database.
+Upon request it returns data as a list in a user-defined AuditBenchmark datatype.
+It is used to pass the number of  acceptable “No” or the benchmark, in other words, to audit severity microservice.
+Method:
+GET:/AuditBenchmark
+
 
