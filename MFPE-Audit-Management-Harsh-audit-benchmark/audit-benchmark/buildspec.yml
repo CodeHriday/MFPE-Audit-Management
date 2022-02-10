@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+      docker: 18
+  pre_build:
+    commands:
+      - echo "Pre_build"
+      - echo "Logging in to Amazon ECR"
+      - $(aws ecr get-login  --no-include-email --region ap-south-1)
+  build:
+    commands:
+      - echo "Build"
+      - echo "Entered build phase"
+      - echo "Building Java application"
+      - cd  audit-benchmark
+      - mvn clean package
+      - docker build -t ijo23-benchmark-registry:latest .
+      - docker tag ijo23-benchmark-registry:latest 299629158582.dkr.ecr.ap-south-1.amazonaws.com/ijo23-benchmark-registry:ij023pod2benchmark
+
+  post_build:
+    commands:
+      - echo "Post_build"
+      - docker push 299629158582.dkr.ecr.ap-south-1.amazonaws.com/ijo23-benchmark-registry:ij023pod2benchmark
+      - printf '[{"name":"ij023pod2benchmark-container","imageUri":"%s"}]' 299629158582.dkr.ecr.ap-south-1.amazonaws.com/ijo23-benchmark-registry:ij023pod2benchmark > taskdefinition.json
+      - cat taskdefinition.json
+
+artifacts:
+  files:
+      - audit-benchmark/taskdefinition.json

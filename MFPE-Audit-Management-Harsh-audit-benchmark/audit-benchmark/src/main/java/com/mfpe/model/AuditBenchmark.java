@@ -1,0 +1,39 @@
+package com.mfpe.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Component
+@ToString
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name="audit_benchmark")
+public class AuditBenchmark {
+	
+	@Id
+	@Column(name="benchmark_id")
+	@GeneratedValue
+	private int benchmarkId;
+	
+	@Column(name="audit_type")
+	private String auditType;
+	
+	@Column(name="benchmark_no_answers")
+	private int benchmarkNoAnswers;
+	
+	
+}
