@@ -1,17 +1,11 @@
-# MFPE-Audit-Management
+# MFPE-Audit-Management-Benchmark microservice
 
-This is the MFPE Audit Management System Project.
+Harsh Goyel,2048714
+CDE|IJ023
 
-## The Team Members are Menaka, Ruksana, Harsh, Vaishnavi and Hriday.
+Audit checklist microservice is a middleware microservice.
+This microservice is used to get the list of questions from H2 database.
+The returned list is used by the UI to display question based on the type selected by the user.
+Method:  
+GET:/AuditCheckListQuestions
 
-## Name     -    Microservice
-
-Menaka   -
-
-Ruksana  -   Audit Severity
-
-Harsh    -  Audit Benchmark
-
-Vaishnavi-
-
-Hriday   -   Authorization (JWT)
